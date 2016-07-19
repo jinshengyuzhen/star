@@ -68,9 +68,11 @@ if (canvasSupport) {
 
     /*img是标题文字的效果*/
     var img = new Image();
-    //img.src = 'http://mat1.gtimg.com/www/images/qq2012/festival/topic/plutotext.png';
-    var imgWidth = 606;
-    var imgHeight = 162;
+    img.src = 'http://mat1.gtimg.com/www/images/qq2012/festival/topic/plutotext.png';
+   // var imgWidth = 606;
+   // var imgHeight = 162; 为了不显示图片,如果直接把img.src去掉,在safari中会报错
+    var imgWidth = 1;
+    var imgHeight = 1;
     var sx = w / 2 - imgWidth / 2;
     var sy = h / 2 - imgHeight / 2;
 
