@@ -138,12 +138,12 @@ if (canvasSupport) {
             /*注释代码实现加速飞船穿越效果，即近处的星星往屏幕外边移动至消失，
              远处的星星不断变大，并有新的星星产生*/
             if (stars[i]) {
-                stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
-                stars[i].radius += 0.02;
+               // stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
+                //stars[i].radius += 0.02;
                 stars[i].draw();
-                if( stars[i].orbitRadius > stars[i].orbitX) {
-                	stars[i] = false;
-                	stars.push(new Star())
+               // if( stars[i].orbitRadius > stars[i].orbitX) {
+               // 	stars[i] = false;
+            //    	stars.push(new Star())
                 }
             }
         };
