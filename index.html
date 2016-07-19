@@ -43,7 +43,7 @@ if (canvasSupport) {
     var canvas = document.getElementById('canvas'),
         ctx = canvas.getContext('2d'),
         w = canvas.width = document.body.offsetWidth,
-        h = canvas.height = window.innerHeight,
+        h = canvas.height = window.innerHeight,//为了在手机上满屏
         //h = canvas.height = 755,
         hue = 217,
         stars = [],
@@ -103,7 +103,7 @@ if (canvasSupport) {
         this.orbitX = w / 2;
         this.orbitY = h / 2;
         this.timePassed = random(0, maxStars);//运行时间
-        this.speed = random(this.orbitRadius) / 200000;//移动速度，半径越大，最高速度越大
+        this.speed = random(this.orbitRadius) / 30000;//移动速度，半径越大，最高速度越大
         this.alpha = random(2, 10) / 10;// 亮度
         count++;
         stars[count] = this;
@@ -136,12 +136,12 @@ if (canvasSupport) {
         ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
         ctx.fillRect(0, 0, w, h)
         ctx.globalCompositeOperation = 'lighter';
-        for (var i = 1, l = stars.length; i < l; i++) {
+        for (var i = 1, l = stars.length; i < stars.length; i++) {
             /*注释代码实现加速飞船穿越效果，即近处的星星往屏幕外边移动至消失，
              远处的星星不断变大，并有新的星星产生*/
             if (stars[i]) {
                 stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
-                stars[i].radius += 0.02;
+                //stars[i].radius += 0.02;
                 stars[i].draw();
                 if( stars[i].orbitRadius > stars[i].orbitX) {
                 	stars[i] = false;
