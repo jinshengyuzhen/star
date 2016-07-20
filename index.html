@@ -136,7 +136,7 @@ if (canvasSupport) {
         ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
         ctx.fillRect(0, 0, w, h)
         ctx.globalCompositeOperation = 'lighter';
-        for (var i = 1, i < stars.length; i++) {
+        for (var i = 1; i < stars.length; i++) {
             /*注释代码实现加速飞船穿越效果，即近处的星星往屏幕外边移动至消失，
              远处的星星不断变大，并有新的星星产生*/
             if (stars[i]) {
