@@ -92,7 +92,7 @@ if (canvasSupport) {
 
     /*星星移动范围*/
     function maxOrbit(x, y) {
-        var max = Math.min(x, y),//在手机上h比w大
+        var max = Math.max(x, y),//在手机上h比w大
             diameter = Math.round(Math.sqrt(max * max + max * max));
         return diameter / 2;
     }
@@ -136,12 +136,12 @@ if (canvasSupport) {
         ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
         ctx.fillRect(0, 0, w, h)
         ctx.globalCompositeOperation = 'lighter';
-        for (var i = 1, l = stars.length; i < stars.length; i++) {
+        for (var i = 1, i < stars.length; i++) {
             /*注释代码实现加速飞船穿越效果，即近处的星星往屏幕外边移动至消失，
              远处的星星不断变大，并有新的星星产生*/
             if (stars[i]) {
                 stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
-                //stars[i].radius += 0.02;
+                //stars[i].radius += 0.02;星星的半径增加，中心会出现一个越来越大的星星
                 stars[i].draw();
                 if( stars[i].orbitRadius > stars[i].orbitX) {
                 	stars[i] = false;
