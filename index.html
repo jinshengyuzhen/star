@@ -143,7 +143,7 @@ if (canvasSupport) {
                 stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
                 //stars[i].radius += 0.02;星星的半径增加，中心会出现一个越来越大的星星
                 stars[i].draw();
-                if( stars[i].orbitRadius > stars[i].orbitX * 2) {
+                if( stars[i].orbitRadius >  Math.max(stars[i].orbitY,stars[i].orbitX)) {//手机屏幕上星星的移动轨迹也可以满屏
                 	stars[i] = false;
                 	stars.push(new Star())
                 }
