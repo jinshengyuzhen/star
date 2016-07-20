@@ -141,7 +141,9 @@ if (canvasSupport) {
              远处的星星不断变大，并有新的星星产生*/
             if (stars[i]) {
                 stars[i].orbitRadius += 0.002 * stars[i].orbitRadius;
-                //stars[i].radius += 0.02;星星的半径增加，中心会出现一个越来越大的星星
+                if(stars[i].orbitRadius > 1){//飞船往前走的时候，远处的星会越来越大，同时避免中心产生巨大的星星
+                    stars[i].radius += 0.02;
+                }
                 stars[i].draw();
                 if( stars[i].orbitRadius >  Math.max(stars[i].orbitY,stars[i].orbitX)) {//手机屏幕上星星的移动轨迹也可以满屏
                 	stars[i] = false;
@@ -155,7 +157,6 @@ if (canvasSupport) {
     }
     animation();
 }
-//-->
 </script>
 
 </body>
